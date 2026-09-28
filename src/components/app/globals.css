@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    color-scheme: dark;
+  }
+  body {
+    @apply bg-base-950 text-text-primary antialiased;
+  }
+  * {
+    @apply border-base-700;
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-2xl bg-base-900 border border-base-700 shadow-card p-5;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition-colors disabled:opacity-50 disabled:pointer-events-none;
+  }
+  .btn-primary {
+    @apply btn bg-accent text-base-950 hover:bg-accent-muted;
+  }
+  .btn-secondary {
+    @apply btn bg-base-700 text-text-primary hover:bg-base-600;
+  }
+  .btn-ghost {
+    @apply btn bg-transparent text-text-secondary hover:bg-base-800 hover:text-text-primary;
+  }
+  .btn-danger {
+    @apply btn bg-empire-danger/15 text-empire-danger hover:bg-empire-danger/25;
+  }
+  .input {
+    @apply w-full rounded-xl bg-base-800 border border-base-600 px-3.5 py-2.5 text-sm text-text-primary placeholder:text-text-muted outline-none focus:border-accent transition-colors;
+  }
+  .label {
+    @apply block text-xs font-medium text-text-secondary mb-1.5;
+  }
+  .progress-track {
+    @apply w-full h-2.5 rounded-full bg-base-700 overflow-hidden;
+  }
+  .progress-fill {
+    @apply h-full rounded-full bg-accent transition-all duration-500;
+  }
+  .badge {
+    @apply inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-medium bg-base-700 text-text-secondary;
+  }
+}
+
+/* Respect reduced-motion preference (spec 51 accessibility) */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
